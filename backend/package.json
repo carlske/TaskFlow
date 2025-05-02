@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "migration:run": "typeorm-ts-node-commonjs migration:run -d ./src/config/data-source.ts",
     "migration:generate": "typeorm-ts-node-commonjs migration:generate -d ./src/config/data-source.ts -n",
     "migration:create": "typeorm-ts-node-commonjs migration:create src/migration/",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "test": "vitest"
+
   },
   "keywords": [],
   "author": "",
@@ -28,7 +29,11 @@
   "devDependencies": {
     "@types/express": "^5.0.1",
     "@types/node": "^22.15.3",
+    "@vitest/ui": "^3.1.2",
+    "supertest": "^7.1.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3"
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.2"
   }
 }

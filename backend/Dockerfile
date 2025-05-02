@@ -11,6 +11,8 @@ COPY . .
 
 RUN pnpm tsc
 
+RUN pnpm migration:run
+
 EXPOSE 3000
 
 CMD ["node", "dist/app.js"]

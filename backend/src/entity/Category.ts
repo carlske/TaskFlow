@@ -1,13 +1,19 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
+import { Entity, PrimaryColumn, Column, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
 
 @Entity()
 export class Category {
-  @PrimaryGeneratedColumn('uuid')
+  
+  @PrimaryGeneratedColumn('uuid')   
   id: string;
 
   @Column()
   name: string;
 
+  @Column('text', { nullable: false })
+  color: string;
+
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt: string;
+
+
 }

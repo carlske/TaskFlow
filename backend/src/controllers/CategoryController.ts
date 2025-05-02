@@ -12,6 +12,13 @@ export class CategoryController {
     };
 
     createCategory = async (req: Request, res: Response) => {
+
+        const { name, color } = req.body;
+
+        if (!name || !color) {
+            return res.status(400).json({ message: 'Category name and color are required' });
+        }
+
         const task = await this.service.create(req.body);
         res.status(201).json(task);
     };
