@@ -10,7 +10,6 @@
     "migration:create": "typeorm-ts-node-commonjs migration:create src/migration/",
     "dev": "nodemon",
     "test": "vitest"
-
   },
   "keywords": [],
   "author": "",
@@ -20,6 +19,7 @@
     "@types/cors": "^2.8.17",
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "morgan": "^1.10.0",
     "nodemon": "^3.1.10",
     "reflect-metadata": "^0.2.2",
     "sqlite3": "^5.1.7",
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.1",
+    "@types/morgan": "^1.9.9",
     "@types/node": "^22.15.3",
     "@vitest/ui": "^3.1.2",
     "supertest": "^7.1.0",

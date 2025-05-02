@@ -1,11 +1,27 @@
 import { AppDataSource } from '../config/data-source';
+import { Category } from '../entity/Category';
 import { Task } from '../entity/Task';
 import { TaskStatus } from '../entity/TaskStatus';
+import { generateRandomRGB } from '../utils/randomColor';
 
 export class TaskService {
-  async create(data: Partial<Task>): Promise<Task> {
+
+  async create(data: Partial<Task> & { categoryId: string }): Promise<Task> {
     const taskRepo = AppDataSource.getRepository(Task);
-    const task = taskRepo.create(data);
+    const categoryRepo = AppDataSource.getRepository(Category);
+  
+    const category = await categoryRepo.findOneBy({ id: data.categoryId });
+    if (!category) {
+      throw new Error('Category not found');
+    }
+  
+    const task = taskRepo.create({
+      title: data.title,
+      color: generateRandomRGB(), 
+      category,
+      status: data.status,
+    });
+  
     return await taskRepo.save(task);
   }
 
@@ -23,6 +39,7 @@ export class TaskService {
     return await taskRepo.find({
       where: { status },
       order: { createdAt: 'DESC' },
+      relations: ['category'],
       take: limit,
     });
   }

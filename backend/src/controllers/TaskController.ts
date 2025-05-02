@@ -13,6 +13,13 @@ export class TaskController {
   }
 
   create = async (req: Request, res: Response) => {
+
+    const { title, category } = req.body
+
+    if (!title || !category) {
+      return res.status(400).json({ message: 'Title and category are required' });
+    }
+
     const task = await this.service.create(req.body);
     res.status(201).json(task);
   };
@@ -26,7 +33,7 @@ export class TaskController {
 
     const task = await this.service.markAsDone(id);
     if (!task) return res.status(404).json({ message: 'Not found' });
-  
+
     return res.json(task);
   };
 

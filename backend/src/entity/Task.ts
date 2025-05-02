@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, Unique } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, Unique, ManyToOne, JoinColumn } from 'typeorm';
 import { TaskStatus } from './TaskStatus';
+import { Category } from './Category';
 
 @Entity()
 export class Task {
@@ -9,8 +10,9 @@ export class Task {
   @Column()
   title: string;
 
-  @Column()
-  category: string;
+  @ManyToOne(() => Category, { nullable: false})
+  @JoinColumn({ name: 'categoryId' })
+  category: Category;
 
   @Column()
   color: string;
@@ -20,6 +22,7 @@ export class Task {
     enum: TaskStatus,
     default: TaskStatus.PENDING,
   })
+  
   status: TaskStatus;
 
   @CreateDateColumn()

@@ -16,19 +16,20 @@ This repository is a **pnpm workspaces** monorepo that includes:
 
 ```bash
 pnpm install     # Install all dependencies
+pnpm dev         # run frontend and backend
 ```
 
 ### Frontend (React)
 
 ```bash
-cd apps/frontend
+cd /frontend
 pnpm dev         # Start the React dev server
 ```
 
 ### Backend (Express + TypeScript)
 
 ```bash
-cd apps/backend
+cd /backend
 pnpm dev         # Start with Nodemon
 pnpm build       # Compile TypeScript
 pnpm test        # Run tests with Vitest
@@ -37,7 +38,7 @@ pnpm test        # Run tests with Vitest
 ### TypeORM Migrations
 
 ```bash
-pnpm migration:run                       # Run migrations
+pnpm migration:run                     
 pnpm migration:generate -n YourMigrationName
 pnpm migration:create src/migration/NewMigration
 ```
@@ -55,8 +56,8 @@ pnpm test
 ```yaml
 # pnpm-workspace.yaml
 packages:
-  - "apps/*"
-  - "packages/*"
+  - "backend/*"
+  - "frontend/*"
 ```
 
 ## 📄 Environment Variables

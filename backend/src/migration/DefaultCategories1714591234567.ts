@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 export class DefaultCategories1714583010000 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    // Asegura que la columna color exista (puedes omitir si ya la agregaste en otra migración)
     await queryRunner.query(`ALTER TABLE category ADD COLUMN color TEXT`);
 
     const now = new Date().toISOString();

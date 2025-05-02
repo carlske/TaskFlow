@@ -6,3 +6,5 @@ pnpm-lock.yaml
 
 logs
 *.log
+
+db.sqlite
