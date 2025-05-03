@@ -18,11 +18,11 @@ const TaskList = ({ status }: { status: TaskStatus }) => {
     return <Typography>No hay tareas {status === 'pending' ? 'activas' : 'finalizadas'}.</Typography>;
 
   return (
-    <>
+    <section style={{ padding: '1em' }}>
       {filteredTasks.map((task) => (
         <TaskItem key={task.id} task={task} />
       ))}
-    </>
+    </section>
   );
 };
 

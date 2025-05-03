@@ -24,3 +24,10 @@ export interface Task {
   createdAt: string;
   category: CategoryTask;
 }
+
+
+export interface TaskCreateForm {
+  title: string;
+  description: string;
+  category: string;
+}

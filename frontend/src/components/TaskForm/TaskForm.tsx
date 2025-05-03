@@ -10,17 +10,47 @@ import {
 import styles from './TaskForm.module.css'
 import { FormSuccess } from '../../types/Shared'
 import { useCategory } from '../../context/CategoryContext'
+import useFetch from '../../hooks/useFetch'
+import { CreateCategory } from '../../types/Category'
+import { AppConfig } from '../../config/AppConfig'
+import { Task, TaskCreateForm } from '../../types/Task'
+import { useTask } from '../../context/TaskContext'
 
 const TaskForm = ({ onSuccess }: FormSuccess) => {
     const [title, setTitle] = useState('')
     const [category, setCategory] = useState('')
     const [description, setDescription] = useState('')
 
-      const { categories } = useCategory();
+    const { categories } = useCategory();
+
+    const { refreshTasks } = useTask();
     
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const { executeFetch } = useFetch<CreateCategory>(AppConfig.TASKS_URL);
+    
+    
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
+
+        const newCategory: TaskCreateForm = {
+            title: title,
+            category: category,
+            description:  description
+          };
+        
+        const result = await executeFetch({
+            method: 'POST',
+            body: newCategory,
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+        
+          if (result) {
+            refreshTasks()
+          }
+
         if (onSuccess) onSuccess()
     }
 

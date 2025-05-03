@@ -1,5 +1,5 @@
 export interface Category {
-  id: number;
+  id: string;
   name: string;
   color?: string;
 }
@@ -21,3 +21,5 @@ export interface CategotyFormSuccess {
 }
 
 export type CategoryFormSuccessHandler = (info: { added: boolean }) => void;
+
+

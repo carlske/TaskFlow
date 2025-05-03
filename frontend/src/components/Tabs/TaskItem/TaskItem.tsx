@@ -24,7 +24,10 @@ const TaskItem = ({ task }: { task: Task }) => {
     };
 
     return (
-        <Card sx={{ mb: 2, p: 2 }}>
+        <Card sx={{
+            mb: 2, p: 2, background: `${task.category.color}`,
+            borderRadius: '12px',
+        }}>
             <p
                 style={{
                     backgroundColor: task.color,
