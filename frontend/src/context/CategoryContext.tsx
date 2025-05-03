@@ -1,8 +1,7 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { Category, CategoryContextType } from '../types/Category';
 import useFetch from '../hooks/useFetch';
 import { AppConfig } from '../config/AppConfig';
-
 
 const CategoryContext = createContext<CategoryContextType | null>(null);
 
@@ -13,25 +12,21 @@ export const useCategory = () => {
 };
 
 export const CategoryProvider = ({ children }: { children: React.ReactNode }) => {
-
-  const { data, loading, error, executeFetch } = useFetch<Category[]>(AppConfig.CATEGORIES_URL);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const { loading, error, executeFetch } = useFetch<Category[]>(AppConfig.CATEGORIES_URL);
 
   const refreshCategories = async () => {
-    try {
-      executeFetch()
-    } catch (e) {
-      console.error('Error refreshing categories:', e);
-    }
+    const fetched = await executeFetch();
+    if (fetched) setCategories(fetched);
   };
 
   useEffect(() => {
-    refreshCategories();
+      refreshCategories();
   }, []);
 
   return (
-    <CategoryContext.Provider value={{  loading, error, data, refreshCategories }}>
+    <CategoryContext.Provider value={{ categories, loading, error, refreshCategories }}>
       {children}
     </CategoryContext.Provider>
   );
 };
-

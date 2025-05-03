@@ -1,21 +1,14 @@
-import { useEffect, useState } from 'react';
-import { CircularProgress, List, ListItemButton, ListItemText, Alert } from '@mui/material';
+import { List, ListItemButton, ListItemText, Alert } from '@mui/material';
 
 import { useCategory } from '../../context/CategoryContext';
 
 const CategoryList = () => {
 
-  const { data, refreshCategories } = useCategory();
-
-
-  useEffect(() => {
-    refreshCategories();
-  }, []);
-
+  const { categories } = useCategory();
 
   return (
     <List>
-      {(data || []).map((category) => (
+      {(categories || []).map((category) => (
         <ListItemButton key={category.id}>
           <ListItemText primary={category.name} />
         </ListItemButton>

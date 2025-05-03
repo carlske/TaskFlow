@@ -10,7 +10,7 @@ export interface CreateCategory {
 }
 
 export interface CategoryContextType {
-  data: Category[] | null;
+  categories: Category[] | null;
   loading: boolean;
   error: Error | null;
   refreshCategories: () => Promise<void>;

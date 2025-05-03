@@ -18,7 +18,7 @@ const TaskForm = ({ onSuccess }: TaskFormProps) => {
     const [category, setCategory] = useState('')
     const [description, setDescription] = useState('')
 
-      const { data, refreshCategories } = useCategory();
+      const { categories } = useCategory();
     
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -26,17 +26,13 @@ const TaskForm = ({ onSuccess }: TaskFormProps) => {
         if (onSuccess) onSuccess()
     }
 
-    useEffect(()=>{
-        refreshCategories()
-    },[])
-
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
             <TextField label="Título" value={title} onChange={e => setTitle(e.target.value)} fullWidth required />
             <FormControl fullWidth required>
                 <InputLabel>Categoría</InputLabel>
                 <Select value={category} onChange={e => setCategory(e.target.value)}>
-                    {(data || []).map((category) => (
+                    {(categories || []).map((category) => (
                         <MenuItem key={category.id} value={category.id}>{category.name}</MenuItem>
                     ))}
                 </Select>
