@@ -1,3 +1,4 @@
+import { log } from 'console';
 import { AppDataSource } from '../config/data-source';
 import { Category } from '../entity/Category';
 import { Task } from '../entity/Task';
@@ -6,22 +7,23 @@ import { generateRandomRGB } from '../utils/randomColor';
 
 export class TaskService {
 
-  async create(data: Partial<Task> & { categoryId: string }): Promise<Task> {
+  async create(data: Partial<Task> , categoryId: string ): Promise<Task> {
     const taskRepo = AppDataSource.getRepository(Task);
     const categoryRepo = AppDataSource.getRepository(Category);
   
-    const category = await categoryRepo.findOneBy({ id: data.categoryId });
+    const category = await categoryRepo.findOneBy({ id: categoryId });
     if (!category) {
       throw new Error('Category not found');
     }
   
     const task = taskRepo.create({
       title: data.title,
-      color: generateRandomRGB(), 
-      category,
+      color: generateRandomRGB(),
+      category, 
       status: data.status,
       description: data.description
     });
+    
   
     return await taskRepo.save(task);
   }

@@ -10,6 +10,9 @@ export class Task {
   @Column()
   title: string;
 
+  @Column()
+  categoryId: string;
+
   @ManyToOne(() => Category, { nullable: false })
   @JoinColumn({ name: 'categoryId' })
   category: Category;
@@ -27,7 +30,7 @@ export class Task {
   @Column("text")
   description: string;
 
-
   @CreateDateColumn()
   createdAt: Date;
 }
+

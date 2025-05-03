@@ -20,7 +20,7 @@ export class TaskController {
       return res.status(400).json({ message: 'Title and category are required' });
     }
 
-    const task = await this.service.create(req.body);
+    const task = await this.service.create(req.body,category);
     res.status(201).json(task);
   };
 
