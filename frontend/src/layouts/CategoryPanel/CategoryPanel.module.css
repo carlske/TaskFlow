@@ -1,0 +1,5 @@
+aside{
+    background: var(--indigo-dye);
+    color: var(--white);
+    height: 100vh;
+}

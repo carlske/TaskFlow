@@ -1,0 +1,7 @@
+:root {
+    --oxford-blue: hsla(226, 60%, 10%, 1);
+    --penn-blue: hsla(218, 100%, 16%, 1);
+    --indigo-dye: hsla(209, 95%, 24%, 1);
+    --cerulean: hsla(193, 80%, 35%, 1);
+    --white: hsla(20, 60%, 99%, 1);
+}

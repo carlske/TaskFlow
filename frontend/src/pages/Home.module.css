@@ -1,0 +1,22 @@
+.container {
+    height: 100vh;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    height: 100%;
+    flex: 1;
+}
+
+.sidebar {
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+
+.main {
+    padding: 1.5rem;
+    overflow-y: auto;
+}

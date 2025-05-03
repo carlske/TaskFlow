@@ -1,4 +1,3 @@
 export interface TitleProps {
-    children: React.ReactNode
-    className?: string
+    title: React.ReactNode
 }

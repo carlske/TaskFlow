@@ -1,20 +1,19 @@
-import { Container } from "@mui/material";
-import Title from "../layouts/Ttitle/Title";
-import AddTaskButton from "../components/AddTaskButton/AddTaskButton";
+import PageHeader from "../layouts/PageHeader/PageHeader";
+import styles from './Home.module.css'
+import CategoryPanel from "../layouts/CategoryPanel/CategoryPanel";
+import TaskPanel from "../layouts/TaskPanel/TaskPanel";
 
 const Home = () => {
     return (
-        <Container maxWidth="sm">
-            <div>
-                <div>
-                    <Title>Mis Tareas</Title>
-                </div>
-                <div>
-                    <AddTaskButton></AddTaskButton>                    
-                </div>
+        <div
+            className={styles.container}
+        >
+            <PageHeader title="TaskFlow" />
+            <div className={styles.grid}>
+                <CategoryPanel ></CategoryPanel>
+                <TaskPanel></TaskPanel>
             </div>
-
-        </Container>
+        </div>
     )
 }
 
