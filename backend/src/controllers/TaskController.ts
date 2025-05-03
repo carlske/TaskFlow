@@ -54,11 +54,7 @@ export class TaskController {
 
     const deleted = await this.service.delete(id);
 
-    if (!deleted) {
-      return res.status(404).json({ message: 'Task not found' });
-    }
-
-    return res.status(204).send();
+    return res.status(204).send({msg : "deleted"});
   };
 }
 

@@ -1,5 +1,10 @@
 aside{
     background: var(--cerulean);
     color: var(--white);
-    height: 100vh;
+    height: 100%;
+}
+
+.heading{
+    text-align: center;
+    margin-top: 5px;
 }

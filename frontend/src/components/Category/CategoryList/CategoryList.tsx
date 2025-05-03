@@ -11,6 +11,7 @@ const CategoryList = () => {
 
   const handleClick = (categoryId: string) => {
     setFilter({ ...filter, categoryId });
+    setActiveCategoryId(categoryId)
   };
 
   return (
