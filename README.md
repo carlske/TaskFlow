@@ -38,9 +38,7 @@ pnpm test        # Run tests with Vitest
 ### TypeORM Migrations
 
 ```bash
-pnpm migration:run                     
-pnpm migration:generate -n YourMigrationName
-pnpm migration:create src/migration/NewMigration
+pnpm migration:run     # load default categories
 ```
 
 ## 🧪 Testing
@@ -60,20 +58,3 @@ packages:
   - "frontend/*"
 ```
 
-## 📄 Environment Variables
-
-Add `.env` files in the respective apps:
-
-```env
-# apps/backend/.env
-PORT=3000
-DATABASE_URL=sqlite://db.sqlite
-```
-
-## 🐳 Docker (optional)
-
-If you use Docker for local services:
-
-```bash
-docker-compose up -d
-```
