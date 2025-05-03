@@ -8,10 +8,8 @@ import {
     Button
 } from '@mui/material'
 import styles from './TaskForm.module.css'
-import { FormSuccess } from '../../types/shared'
+import { FormSuccess } from '../../types/Shared'
 import { useCategory } from '../../context/CategoryContext'
-
-
 
 const TaskForm = ({ onSuccess }: FormSuccess) => {
     const [title, setTitle] = useState('')

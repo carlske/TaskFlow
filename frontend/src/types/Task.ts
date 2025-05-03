@@ -3,13 +3,24 @@ export enum TaskStatus {
   DONE = 'done',
 }
 
-export interface TaskFormProps {
-  onSuccess?: () => void
+export interface TaksHeadersProps {
+  value: TaskStatus;
+  onChange: (val: TaskStatus) => void;
+}
+
+export interface CategoryTask {
+  id: string;
+  name: string;
+  color: string;
+  createdAt: string;
 }
 
 export interface Task {
-  id: number;
+  id: string;
   title: string;
-  completed: boolean;
-  category: string;
+  status: 'pending' | 'done';
+  color: string;
+  description: string;
+  createdAt: string;
+  category: CategoryTask;
 }

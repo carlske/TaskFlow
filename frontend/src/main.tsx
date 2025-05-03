@@ -5,15 +5,18 @@ import { CssBaseline, ThemeProvider } from '@mui/material'
 import '../src/assets/global.css';
 import theme from '../theme/theme.ts'
 import { CategoryProvider } from './context/CategoryContext.tsx';
+import { TaskProvider } from './context/TaskContext.tsx';
 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
     <CssBaseline />
+    <TaskProvider>
     <CategoryProvider>
     <App />
     </CategoryProvider>
+    </TaskProvider>
     </ThemeProvider>
   </StrictMode>,
 )

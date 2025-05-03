@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import { TextField, Button } from '@mui/material'
 import styles from './CategoryForm.module.css'
-import { FormSuccess } from '../../types/shared'
 import { MuiColorInput } from 'mui-color-input'
-import useFetch from '../../hooks/useFetch'
-import { CreateCategory, CreateCategoryFormSuccess } from '../../types/Category'
-import { AppConfig } from '../../config/AppConfig'
+import useFetch from '../../../hooks/useFetch'
+import { AppConfig } from '../../../config/AppConfig'
+import { CategotyFormSuccess, CreateCategory } from '../../../types/Category'
 
 
 
-const CategoryForm = ({ onSuccess }: CreateCategoryFormSuccess) => {
+const CategoryForm = ({ onSuccess }: CategotyFormSuccess) => {
     const [title, setTitle] = useState('')
     const [color, setColor] = useState('')
 

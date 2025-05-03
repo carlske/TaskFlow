@@ -1,5 +1,5 @@
 .asideTask{
-  background: var(--cerulean);
-  color: var(--white);
+  background: var(--white);
+  color: var(--cerulean);
   height: 100vh;
 }

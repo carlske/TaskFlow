@@ -2,7 +2,7 @@ import { Box, Button, Modal, Typography } from "@mui/material"
 import { useState } from "react";
 import style from './CategoryModal.module.css'
 import CategoryForm from "../CategoryForm/CategoryForm";
-import { useCategory } from "../../context/CategoryContext";
+import { useCategory } from "../../../context/CategoryContext";
 
 const CategoryModal = () => {
   const [open, setOpen] = useState(false);
