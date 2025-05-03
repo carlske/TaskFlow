@@ -10,7 +10,7 @@ export class Task {
   @Column()
   title: string;
 
-  @ManyToOne(() => Category, { nullable: false})
+  @ManyToOne(() => Category, { nullable: false })
   @JoinColumn({ name: 'categoryId' })
   category: Category;
 
@@ -22,8 +22,11 @@ export class Task {
     enum: TaskStatus,
     default: TaskStatus.PENDING,
   })
-  
   status: TaskStatus;
+
+  @Column("text")
+  description: string;
+
 
   @CreateDateColumn()
   createdAt: Date;

@@ -20,6 +20,7 @@ export class TaskService {
       color: generateRandomRGB(), 
       category,
       status: data.status,
+      description: data.description
     });
   
     return await taskRepo.save(task);
@@ -34,7 +35,7 @@ export class TaskService {
     return await taskRepo.save(task);
   }
 
-  async getLatestByStatus(status: TaskStatus, limit = 6): Promise<Task[]> {
+  async getTasks(status: TaskStatus, limit = 6): Promise<Task[]> {
     const taskRepo = AppDataSource.getRepository(Task);
     return await taskRepo.find({
       where: { status },

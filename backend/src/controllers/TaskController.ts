@@ -7,7 +7,7 @@ export class TaskController {
   constructor(private service: TaskService) {
     this.create = this.create.bind(this);
     this.markAsDone = this.markAsDone.bind(this);
-    this.getByStatus = this.getByStatus.bind(this);
+    this.getTasks = this.getTasks.bind(this);
     this.getTasks = this.getTasks.bind(this);
     this.delete = this.delete.bind(this);
   }
@@ -37,16 +37,12 @@ export class TaskController {
     return res.json(task);
   };
 
-  getByStatus = async (req: Request, res: Response) => {
-    const { status } = req.params;
-    const tasks = await this.service.getLatestByStatus(status as TaskStatus, 6);
-    res.json(tasks);
-  };
+
 
   getTasks = async (req: Request, res: Response) => {
-    const { status } = req.params;
-    const tasks = await this.service.getLatestByStatus(status as TaskStatus, 6);
-    res.json(tasks);
+    const tasksDone = await this.service.getTasks(TaskStatus.DONE, 6);
+    const tasksPending = await this.service.getTasks(TaskStatus.PENDING, 6);
+    res.json({done : tasksDone, pending : tasksPending});
   };
 
   delete = async (req: Request, res: Response): Promise<Response> => {

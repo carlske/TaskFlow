@@ -10,7 +10,7 @@ const controller = new TaskController(service);
 
 router.put('/done', wrapAsync(controller.markAsDone));
 router.post('/', wrapAsync(controller.create));
-router.get('/status/:status', controller.getByStatus); 
+router.get('/', controller.getTasks); 
 router.delete('/:id/', wrapAsync(controller.delete));
 
 
