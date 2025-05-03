@@ -1,4 +1,4 @@
-import { List, ListItemButton, ListItemText, Alert } from '@mui/material';
+import { List, ListItemButton, ListItemText } from '@mui/material';
 
 import { useCategory } from '../../context/CategoryContext';
 
@@ -11,6 +11,9 @@ const CategoryList = () => {
       {(categories || []).map((category) => (
         <ListItemButton key={category.id}>
           <ListItemText primary={category.name} />
+          <p style={{ backgroundColor: category.color, padding: '4px 8px', borderRadius: '4px' }}>
+            {category.color}
+          </p>
         </ListItemButton>
       ))}
     </List>

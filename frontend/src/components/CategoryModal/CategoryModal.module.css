@@ -1,0 +1,11 @@
+.modalBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: var(--mui-background-paper, #fff); 
+    padding: 2em;
+    border-radius: 8px;
+  }
+  

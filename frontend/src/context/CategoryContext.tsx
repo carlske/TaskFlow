@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { Category, CategoryContextType } from '../types/Category';
 import useFetch from '../hooks/useFetch';
 import { AppConfig } from '../config/AppConfig';

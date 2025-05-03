@@ -1,6 +1,6 @@
 import './App.css'
 import Home from './pages/Home'
-import { SEO } from './seo/Seo'
+import { SEO } from './seo/SEO'
 
 function App() {
 

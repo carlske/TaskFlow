@@ -15,3 +15,5 @@ export interface CategoryContextType {
   error: Error | null;
   refreshCategories: () => Promise<void>;
 }
+
+export type CategoryFormSuccessHandler = (info: { added: boolean }) => void;

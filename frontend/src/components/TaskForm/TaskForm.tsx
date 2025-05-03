@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import {
     TextField,
     Select,
@@ -8,12 +8,12 @@ import {
     Button
 } from '@mui/material'
 import styles from './TaskForm.module.css'
-import { TaskFormProps } from '../../types/Task'
+import { FormSuccess } from '../../types/shared'
 import { useCategory } from '../../context/CategoryContext'
 
 
 
-const TaskForm = ({ onSuccess }: TaskFormProps) => {
+const TaskForm = ({ onSuccess }: FormSuccess) => {
     const [title, setTitle] = useState('')
     const [category, setCategory] = useState('')
     const [description, setDescription] = useState('')

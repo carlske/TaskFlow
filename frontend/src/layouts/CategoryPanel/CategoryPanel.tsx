@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material"
 import styles from './CategoryPanel.module.css'
 import CategoryList from "../../components/CategoryList/CategoryList"
+import CategoryModal from "../../components/CategoryModal/CategoryModal"
 
 
 const CategoryPanel = () => {
@@ -9,6 +10,7 @@ const CategoryPanel = () => {
             Categorias
         </Typography>
         <CategoryList></CategoryList>
+        <CategoryModal></CategoryModal>
     </aside>
 }
 
