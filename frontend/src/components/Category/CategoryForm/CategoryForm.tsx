@@ -38,7 +38,6 @@ const CategoryForm = ({ onSuccess }: CategotyFormSuccess) => {
       
 
     const handleChangeColor = (color : any ) => {
-        console.log(color)
         setColor(color)
     }
 

@@ -13,7 +13,7 @@ import { useCategory } from '../../context/CategoryContext'
 import useFetch from '../../hooks/useFetch'
 import { CreateCategory } from '../../types/Category'
 import { AppConfig } from '../../config/AppConfig'
-import { Task, TaskCreateForm } from '../../types/Task'
+import { TaskCreateForm } from '../../types/Task'
 import { useTask } from '../../context/TaskContext'
 
 const TaskForm = ({ onSuccess }: FormSuccess) => {
@@ -23,8 +23,8 @@ const TaskForm = ({ onSuccess }: FormSuccess) => {
 
     const { categories } = useCategory();
 
-    const { refreshTasks } = useTask();
-    
+    const { setFilter, filter, refreshTasks } = useTask();
+
 
     const { executeFetch } = useFetch<CreateCategory>(AppConfig.TASKS_URL);
     
@@ -49,7 +49,8 @@ const TaskForm = ({ onSuccess }: FormSuccess) => {
         
           if (result) {
             refreshTasks()
-          }
+            setFilter({ ...filter, categoryId : undefined  });
+        }
 
         if (onSuccess) onSuccess()
     }

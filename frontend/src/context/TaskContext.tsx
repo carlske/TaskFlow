@@ -9,33 +9,15 @@ import {
 import { Task, TaskStatus } from '../types/Task';
 import useFetch from '../hooks/useFetch';
 import { AppConfig } from '../config/AppConfig';
+import { TaskContextType, TaskFilter, TaskGroup } from '../types/context';
 
-type TaskGroup = {
-    done: Task[];
-    pending: Task[];
-};
-
-interface TaskFilter {
-    status?: 'pending' | 'done';
-    categoryId?: string;
-}
-
-interface TaskContextType {
-    tasks: TaskGroup;
-    filteredTasks: Task[];
-    loading: boolean;
-    error: Error | null;
-    refreshTasks: () => Promise<void>;
-    filter: TaskFilter;
-    setFilter: (filter: TaskFilter) => void;
-}
 
 const TaskContext = createContext<TaskContextType | null>(null);
 
 export const useTask = () => {
-    const ctx = useContext(TaskContext);
-    if (!ctx) throw new Error('useTask must be used within TaskProvider');
-    return ctx;
+    const context = useContext(TaskContext);
+    if (!context) throw new Error('useTask must be used within TaskProvider');
+    return context;
 };
 
 export const TaskProvider = ({ children }: { children: ReactNode }) => {
@@ -57,9 +39,13 @@ export const TaskProvider = ({ children }: { children: ReactNode }) => {
 
         if (filter.status === TaskStatus.DONE) {
             list = tasks.done;
-        } else if (filter.status === TaskStatus.PENDING) {
+        }
+        if (filter.status === TaskStatus.PENDING) {
             list = tasks.pending;
-        } else {
+        }
+
+        if (filter.status !== TaskStatus.PENDING
+            && filter.status !== TaskStatus.DONE) {
             list = [...tasks.pending, ...tasks.done];
         }
 
