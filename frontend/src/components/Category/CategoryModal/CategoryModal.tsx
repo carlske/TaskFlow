@@ -25,7 +25,7 @@ const CategoryModal = () => {
   return (
     <div>
       <Button variant="contained" onClick={handleOpen}>
-        Agregar Nota
+        Agregar Categoria
       </Button>
 
       <Modal

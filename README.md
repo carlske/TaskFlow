@@ -17,6 +17,7 @@ This repository is a **pnpm workspaces** monorepo that includes:
 ```bash
 pnpm install     # Install all dependencies
 pnpm dev         # run frontend and backend
+pnpm --filter backend migration:run # install default categories 
 ```
 
 ### Frontend (React)
