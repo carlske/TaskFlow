@@ -1,17 +1,16 @@
 FROM node:18
 
+# Herramientas necesarias para sqlite3
+RUN apt-get update && apt-get install -y python3 make g++ && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
 RUN npm install -g pnpm
 
-COPY pnpm-lock.yaml* package.json* tsconfig.json* ./
-RUN pnpm install
-
 COPY . .
 
-RUN pnpm tsc
-
-RUN pnpm migration:run
+RUN pnpm install 
+RUN pnpm build
 
 EXPOSE 3000
 
