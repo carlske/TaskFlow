@@ -8,5 +8,4 @@ export class AppConfig {
     static readonly TASKS_STATUS_URL = `${AppConfig.API_BASE_URL}/tasks/status`;
     static readonly TASKS_URL = `${AppConfig.API_BASE_URL}/tasks`;
     static readonly TASKS_DONE_URL = `${AppConfig.API_BASE_URL}/tasks/done`;
-    static readonly TASKS_DELETE_URL = `${AppConfig.API_BASE_URL}/tasks/delete`;
 }

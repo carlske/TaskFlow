@@ -1,7 +1,7 @@
 import { Tabs, Tab } from '@mui/material';
 import styles from './TabsHeader.module.css'
-import { TaksHeadersProps, TaskStatus } from '../../../types/Task';
-import { useTask } from '../../../context/TaskContext';
+import { TaksHeadersProps, TaskStatus } from '../../types/Task';
+import { useTask } from '../../context/TaskContext';
 
 
 const TabsHeader = ({ value, onChange }: TaksHeadersProps ) => {

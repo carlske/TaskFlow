@@ -8,13 +8,13 @@ import {
     Button
 } from '@mui/material'
 import styles from './TaskForm.module.css'
-import { FormSuccess } from '../../types/Shared'
-import { useCategory } from '../../context/CategoryContext'
-import useFetch from '../../hooks/useFetch'
-import { CreateCategory } from '../../types/Category'
-import { AppConfig } from '../../config/AppConfig'
-import { TaskCreateForm } from '../../types/Task'
-import { useTask } from '../../context/TaskContext'
+import { useTask } from '../../../context/TaskContext'
+import { TaskCreateForm } from '../../../types/Task'
+import { AppConfig } from '../../../config/AppConfig'
+import { CreateCategory } from '../../../types/Category'
+import useFetch from '../../../hooks/useFetch'
+import { useCategory } from '../../../context/CategoryContext'
+import { FormSuccess } from '../../../types/Shared'
 
 const TaskForm = ({ onSuccess }: FormSuccess) => {
     const [title, setTitle] = useState('')

@@ -1,0 +1,16 @@
+{
+    "type": "pwa-node",
+    "request": "launch",
+    "name": "Debug pnpm test (backend)",
+    "runtimeExecutable": "pnpm",
+    "cwd": "${workspaceFolder}/backend",
+    "runtimeArgs": [
+    "test",
+    "src/services/CategoryService.test.ts",
+    "--threads=false"
+    ],
+    "console": "integratedTerminal",
+    "internalConsoleOptions": "neverOpen",
+    "skipFiles": ["<node_internals>/**"]
+  }
+  

@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { TitleProps } from "../../types/Ttile";
 import styles from './PageHeader.module.css'
-import TaskFormModal from "../../components/TaskFormModal/TaskFormModal";
+import TaskFormModal from "../../components/Task/TaskFormModal/TaskFormModal";
 
 
 const PageHeader: React.FC<TitleProps> = ({ title }) => {

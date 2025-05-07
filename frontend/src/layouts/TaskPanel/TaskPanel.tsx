@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import TabsHeader from '../../components/Tabs/TabsHeader/TabsHeader';
+import TabsHeader from '../../components/TabsHeader/TabsHeader';
 import styles from './TaskPanel.module.css'
-import TaskList from '../../components/Tabs/TaskList/TaskList';
+import TaskList from '../../components/Task/TaskList/TaskList';
+import { TaskStatus } from '../../types/Task';
 
 
 const TaskPanel = () => {
 
-    const [activeTab, setActiveTab] = useState<'pending' | 'done'>('pending');
+    const [activeTab, setActiveTab] = useState<TaskStatus.PENDING | TaskStatus.PENDING>(TaskStatus.PENDING);
 
 
     return <aside className={styles.asideTask}>

@@ -1,18 +1,19 @@
-import { Card, Typography, Button } from '@mui/material';
+import { Card, Typography, Button, Tab } from '@mui/material';
 import { useTask } from '../../../context/TaskContext';
 import { Task, TaskStatus } from '../../../types/Task';
 import useFetch from '../../../hooks/useFetch';
 import { AppConfig } from '../../../config/AppConfig';
+import TagCategory from '../../TagCategory/TagCategory';
 
 const TaskItem = ({ task }: { task: Task }) => {
     const { refreshTasks } = useTask();
 
     const { executeFetch: markDoneFetch } = useFetch<Task>(AppConfig.TASKS_DONE_URL);
-    const { executeFetch: deleteFetch } = useFetch<Task>(AppConfig.TASKS_DELETE_URL);
+    const { executeFetch: deleteFetch } = useFetch<Task>(AppConfig.TASKS_URL);
 
     const handleMarkAsDone = async () => {
         const result = await markDoneFetch({
-            method: 'PUT',
+            method: 'PATCH',
             body: { id: task.id },
             headers: {
                 'Content-Type': 'application/json'
@@ -34,28 +35,22 @@ const TaskItem = ({ task }: { task: Task }) => {
         });
 
         await refreshTasks();
-    
+
     };
-
-
 
     return (
         <Card sx={{
-            mb: 2, p: 2, background: `${task.category.color}`,
+            mb: 2, p: 2,
             borderRadius: '12px',
+            border: "1.5px solid",
+            borderColor: `${task.color}`
         }}>
-            <p
-                style={{
-                    backgroundColor: task.color,
-                    width: '26px',
-                    height: '26px',
-                    borderRadius: '50%',
-                    display: 'inline-block',
-                }}
-            />
             <Typography variant="h6">{task.title}</Typography>
-            <Typography variant="body2">Categoría: {task.category.name}</Typography>
+            <TagCategory description={task.category.name} color={task.category.color}></TagCategory>
+
+            <Typography variant="body2">Descripción:</Typography>
             <Typography variant="body2">{task.description}</Typography>
+
             {task.status === TaskStatus.PENDING && (
                 <Button onClick={handleMarkAsDone} variant="contained" color="primary">
                     Finalizar
