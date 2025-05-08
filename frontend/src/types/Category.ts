@@ -1,16 +1,16 @@
-export interface Category {
+export interface CategoryForm {
   id: string;
   name: string;
   color?: string;
 }
 
-export interface CreateCategory {
+export interface CreateCategoryProps {
   name: string;
   color?: string;
 }
 
 export interface CategoryContextType {
-  categories: Category[] | null;
+  categories: CategoryForm[] | null;
   loading: boolean;
   error: Error | null;
   refreshCategories: () => Promise<void>;

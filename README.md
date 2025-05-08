@@ -20,7 +20,7 @@ pnpm dev         # run frontend and backend
 pnpm --filter backend migration:run # install default categories 
 ```
 
-### Frontend (React)
+### Frontend (React) Feature-Based Architecture 
 
 ```bash
 cd /frontend

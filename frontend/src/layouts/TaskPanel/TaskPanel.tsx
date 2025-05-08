@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import TabsHeader from '../../components/TabsHeader/TabsHeader';
+import TabsHeader from '../../features/tasks/components/TabsHeader/TabsHeader';
 import styles from './TaskPanel.module.css'
-import TaskList from '../../components/Task/TaskList/TaskList';
+import TaskList from '../../features/tasks/components/TaskList/TaskList';
 import { TaskStatus } from '../../types/Task';
 
 

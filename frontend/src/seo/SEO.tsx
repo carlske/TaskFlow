@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
-import { SEOProps } from '../types/SEOProps';
 
+type SEOProps = {
+    title?: string;
+    description?: string;
+    keywords?: string;
+};
 
 export const SEO = ({ title, description, keywords }: SEOProps) => {
     useEffect(() => {

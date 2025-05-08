@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import { Task } from '../entity/Task';
 import { Category } from '../entity/Category';
