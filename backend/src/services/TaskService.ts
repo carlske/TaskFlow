@@ -4,6 +4,7 @@ import { Category } from '../entity/Category';
 import { Task } from '../entity/Task';
 import { TaskStatus } from '../entity/TaskStatus';
 import { generateRandomRGB } from '../utils/randomColor';
+import { ServiceError } from '../error/ServiceError';
 
 export class TaskService {
 
@@ -13,7 +14,7 @@ export class TaskService {
   
     const category = await categoryRepo.findOneBy({ id: categoryId });
     if (!category) {
-      throw new Error('Category not found');
+      throw new ServiceError('Category not found',404);
     }
   
     const task = taskRepo.create({
@@ -31,7 +32,7 @@ export class TaskService {
   async markAsDone(id: string): Promise<Task | null> {
     const taskRepo = AppDataSource.getRepository(Task);
     const task = await taskRepo.findOneBy({ id });
-    if (!task) return null;
+    if (!task) throw new ServiceError("Task not found",404);
 
     task.status = TaskStatus.DONE;
     return await taskRepo.save(task);
@@ -50,6 +51,11 @@ export class TaskService {
   async delete(id: string): Promise<boolean> {
     const taskRepo = AppDataSource.getRepository(Task);    
     const result = await taskRepo.delete(id);
+
+    if (result.affected === 0) {
+      throw new ServiceError('Task not found', 404);
+    }
+
     return result.affected !== 0;
   }
 

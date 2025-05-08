@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { TaskService } from '../services/TaskService';
 import { TaskStatus } from '../entity/TaskStatus';
+import { ServiceError } from '../error/ServiceError';
 
 export class TaskController {
 
@@ -17,7 +18,7 @@ export class TaskController {
     const { title, category } = req.body
 
     if (!title || !category) {
-      return res.status(400).json({ message: 'Title and category are required' });
+      throw new ServiceError("Title and category are required",400);
     }
 
     const task = await this.service.create(req.body,category);
@@ -28,11 +29,11 @@ export class TaskController {
     const { id } = req.body;
 
     if (!id) {
-      return res.status(400).json({ message: 'Missing task id in body' });
+      throw new ServiceError("Missing task id in body",400);
     }
 
     const task = await this.service.markAsDone(id);
-    if (!task) return res.status(404).json({ message: 'Not found' });
+    if (!task) throw new ServiceError("Task not found",404);
 
     return res.json(task);
   };
@@ -49,11 +50,10 @@ export class TaskController {
     const { id } = req.body;
 
     if (!id) {
-      return res.status(400).json({ message: 'Missing task id in body' });
+      throw new ServiceError("Missing task id in body",400);
     }
 
     const deleted = await this.service.delete(id);
-
     return res.status(204).send({msg : "deleted"});
   };
 }
