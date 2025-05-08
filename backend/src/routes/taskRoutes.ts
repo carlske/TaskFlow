@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { TaskService } from '../services/TaskService';
 import { TaskController } from '../controllers/TaskController';
-import { wrapAsync } from '../utils/wrapAsync';
+import { wrapAsync } from '../middleware/wrapAsync';
 
 const router = Router();
 
