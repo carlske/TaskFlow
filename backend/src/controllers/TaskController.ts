@@ -54,7 +54,6 @@ export class TaskController {
     }
 
     const deleted = await this.service.delete(id);
-
     return res.status(204).send({msg : "deleted"});
   };
 }
