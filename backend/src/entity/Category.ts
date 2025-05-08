@@ -13,7 +13,6 @@ export class Category {
   color: string;
 
   @CreateDateColumn()
-  createdAt: string;
-
+  createdAt: Date;
 
 }

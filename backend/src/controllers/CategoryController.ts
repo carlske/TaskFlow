@@ -2,9 +2,7 @@ import { Request, Response } from 'express';
 import { CategoryService } from "../services/CategoryService";
 
 export class CategoryController {
-    constructor(private service: CategoryService) {
-        this.getAllCategories = this.getAllCategories.bind(this);
-    }
+    constructor(private service: CategoryService) {}
 
     getAllCategories = async (req: Request, res: Response) => {
         const task = await this.service.getAllCategories();

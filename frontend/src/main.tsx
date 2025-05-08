@@ -4,8 +4,8 @@ import App from './App.tsx'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import '../src/assets/global.css';
 import theme from '../theme/theme.ts'
-import { CategoryProvider } from './context/CategoryContext.tsx';
-import { TaskProvider } from './context/TaskContext.tsx';
+import { CategoryProvider } from './features/categories/context/CategoryContext.tsx';
+import { TaskProvider } from './features/tasks/context/TaskContext.tsx';
 
 
 createRoot(document.getElementById('root')!).render(
