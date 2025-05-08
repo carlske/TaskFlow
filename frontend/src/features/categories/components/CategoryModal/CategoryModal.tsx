@@ -8,7 +8,9 @@ const CategoryModal = () => {
 
 
   const handleCategorySuccess = ({ added }: { added: boolean }) => {
-    setOpen(added)
+    if(added){
+      setOpen(false) 
+    }
   };
 
 

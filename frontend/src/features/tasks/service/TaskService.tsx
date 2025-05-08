@@ -1,5 +1,5 @@
-import { AppConfig } from "@/features/categories/config/AppConfig";
 import { TaskCreateForm, TaskUpdateForm } from "@/types/Task";
+import { AppConfig } from "@/config/AppConfig";
 
 export const TaskService = {
 

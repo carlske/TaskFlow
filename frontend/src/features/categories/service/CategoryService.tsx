@@ -1,4 +1,4 @@
-import { AppConfig } from "@/features/categories/config/AppConfig"
+import { AppConfig } from "@/config/AppConfig";
 import { CreateCategoryProps } from "@/types/Category";
 
 export const CategoryService = {
