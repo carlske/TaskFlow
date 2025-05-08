@@ -5,7 +5,7 @@ export enum TaskStatus {
 
 export interface TaksHeadersProps {
   value: TaskStatus;
-  onChange: TaskStatus;
+  onChange: (TaskStatus) => void;
 }
 
 export interface CategoryTask {
@@ -30,4 +30,9 @@ export interface TaskCreateForm {
   title: string;
   description: string;
   category: string;
+}
+
+
+export interface TaskUpdateForm {
+  id: string;
 }
