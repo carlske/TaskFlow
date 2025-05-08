@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { CategoryService } from "../services/CategoryService";
+import { ServiceError } from '../error/ServiceError';
 
 export class CategoryController {
     constructor(private service: CategoryService) {}
@@ -14,7 +15,7 @@ export class CategoryController {
         const { name, color } = req.body;
 
         if (!name || !color) {
-            return res.status(400).json({ message: 'Category name and color are required' });
+            throw new ServiceError('Category name and color are required',400)
         }
 
         const task = await this.service.create(req.body);
